@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore the online portfolio of Mojazer Abdullah.">
-  <meta name="keywords" content="Mojazer Abdullah, Online Portfolio, Web Development, Graphic Design">
-  <meta property="og:title" content="Mojazer - Online Portfolio" />
-  <meta property="og:description" content="Explore the diverse work of Mojazer Abdullah through his online portfolio." />
-  <meta property="og:url" content="https://mojazer.xyz" />
-  <meta property="og:image" content="https://i.postimg.cc/9MpbvPtZ/1.png" />
+  <meta name="description" content="Explore the vast comic strips compiled here.">
+  <meta name="keywords" content="comic strips, short comic, short stories, comic shorts">
+  <meta property="og:title" content="Strips - Comic Strips" />
+  <meta property="og:description" content="Explore the diverse comic strips and panels." />
+  <meta property="og:url" content="https://dashflix.xyz" />
+  <meta property="og:image" content="#" />
   <meta property="og:type" content="website">
-  <link rel="icon" href="https://i.postimg.cc/gJT9XTMc/favicon.png" type="image/png">
+  <link rel="icon" href="#" type="image/png">
   <link rel="stylesheet" href="styles.css">
-  <title>Mojazer - Online Portfolio</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/lazysizes.min.js" async></script>
+  <!--<title>Strips - Comic Strips</title>-->
 </head>
 <body oncontextmenu="return false;">
 
@@ -20,13 +21,45 @@
     <!-- Add header content if needed -->
   </header>
   <div class="image-container">
-    <img src="https://i.postimg.cc/cCtwBpTD/1.png" alt="Image 1">
-    <img src="https://i.postimg.cc/wBxWQBN0/2.png" alt="Image 2">
-    <img src="https://i.postimg.cc/0y0WSSzz/3.png" alt="Image 3">
-    <img src="https://i.postimg.cc/L8pQhD8d/4.png" alt="Image 4">
-    <img src="https://i.postimg.cc/qBN5Fg5F/5.png" alt="Image 5">
-    <img src="https://i.postimg.cc/nc7wHgZY/6.png" alt="Image 6">
+
   </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+const container = document.querySelector(".image-container");
+
+// Your image URLs
+const imageUrls = [
+"https://i.postimg.cc/nc7wHgZY/6.png",
+"https://i.postimg.cc/qBN5Fg5F/5.png",
+"https://i.postimg.cc/L8pQhD8d/4.png",
+"https://i.postimg.cc/0y0WSSzz/3.png",
+"https://i.postimg.cc/wBxWQBN0/2.png",
+"https://i.postimg.cc/cCtwBpTD/1.png"
+// Add more image URLs as needed
+];
+
+// Shuffle the image URLs
+const shuffledImageUrls = shuffleArray(imageUrls);
+
+// Create and append img elements
+shuffledImageUrls.forEach(function(url) {
+const img = document.createElement("img");
+img.setAttribute("src", url);
+img.setAttribute("alt", "Image");
+container.appendChild(img);
+});
+});
+
+// Function to shuffle an array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+for (let i = array.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[array[i], array[j]] = [array[j], array[i]];
+}
+return array;
+}
+      </script>
 
   <!--<script src="script.js"></script>-->
 </body>
