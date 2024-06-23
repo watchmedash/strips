@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/lazysizes.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.0/lazysizes.min.js"></script>
   <!--<title>Strips - Comic Strips</title>-->
 </head>
 <body oncontextmenu="return false;">
@@ -25,8 +25,8 @@
   </div>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-const container = document.querySelector(".image-container");
+    document.addEventListener("DOMContentLoaded", function() {
+      const container = document.querySelector(".image-container");
 
 // Your image URLs
 const imageUrls = [
@@ -1516,27 +1516,28 @@ const imageUrls = [
 ];
 
 // Shuffle the image URLs
-const shuffledImageUrls = shuffleArray(imageUrls);
+      const shuffledImageUrls = shuffleArray(imageUrls);
 
-// Create and append img elements
-shuffledImageUrls.forEach(function(url) {
-const img = document.createElement("img");
-img.setAttribute("src", url);
-img.setAttribute("alt", "Image");
-container.appendChild(img);
-});
-});
+      // Create and append img elements
+      shuffledImageUrls.forEach(function(url) {
+        const img = document.createElement("img");
+        img.setAttribute("data-src", url); // Use data-src instead of src
+        img.setAttribute("alt", "Image");
+        img.classList.add("lazyload"); // Add lazyload class
+        container.appendChild(img);
+      });
 
-// Function to shuffle an array (Fisher-Yates algorithm)
-function shuffleArray(array) {
-for (let i = array.length - 1; i > 0; i--) {
-const j = Math.floor(Math.random() * (i + 1));
-[array[i], array[j]] = [array[j], array[i]];
-}
-return array;
-}
-      </script>
+      // Function to shuffle an array (Fisher-Yates algorithm)
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+    });
+  </script>
 
-  <!--<script src="script.js"></script>-->
+<!--<script src="script.js"></script>-->
 </body>
 </html>
