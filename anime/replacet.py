@@ -10,4 +10,4 @@ def replace_text_in_files(directory, old_text, new_text):
                     print(line.replace(old_text, new_text), end='')
 
 # Replace "Mercenary Enrollment" with "Overgeared" in all HTML files in the current directory
-replace_text_in_files('.', 'https://i.postimg.cc/qMFTZzvm/logodf.webp', 'https://i.postimg.cc/Kv4RxRFw/logo1.png')
+replace_text_in_files('.', 'https://i.postimg.cc/g2n9TLBn/favicon.png', 'https://i.postimg.cc/Z5SgSyzx/favicon-32x32.png')
