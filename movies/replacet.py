@@ -10,4 +10,4 @@ def replace_text_in_files(directory, old_text, new_text):
                     print(line.replace(old_text, new_text), end='')
 
 # Replace "Mercenary Enrollment" with "Overgeared" in all HTML files in the current directory
-replace_text_in_files('.', 'https://watchmenow.disqus.com/embed.js', 'https://nextflix.disqus.com/embed.js')
+replace_text_in_files('.', '64b0f5079f35fb00121494d9', '66af2dbd595beb00197dfcab')
