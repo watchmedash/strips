@@ -1,10 +1,10 @@
 import os
 
 # Directory containing your HTML files
-directory = r'C:\Users\HP\Documents\GitHub\dashflix'  # Replace with your actual directory path
+directory = r'C:\Users\HP\Documents\GitHub\strips'  # Replace with your actual directory path
 
 # Line to be removed
-line_to_remove = '<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">\n'
+line_to_remove = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412399424552673"crossorigin="anonymous"></script>\n'
 
 def remove_link_tag(directory):
     for root, dirs, files in os.walk(directory):
