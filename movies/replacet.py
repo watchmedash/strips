@@ -10,4 +10,4 @@ def replace_text_in_files(directory, old_text, new_text):
                     print(line.replace(old_text, new_text), end='')
 
 # Replace "Mercenary Enrollment" with "Overgeared" in all HTML files in the current directory
-replace_text_in_files('.', '66af2dbd595beb00197dfcab', '66695941c861e90019a22817')
+replace_text_in_files('.', '66695941c861e90019a22817', '66af2dbd595beb00197dfcab')
