@@ -4,7 +4,7 @@ import os
 directory = r'C:\Users\HP\Documents\GitHub\dashflix\movies'  # Replace with your actual directory path
 
 # Line to be removed
-line_to_remove = '<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>\n'
+line_to_remove = '<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412399424552673"></script>'
 
 def remove_font_links(directory):
     for root, dirs, files in os.walk(directory):
