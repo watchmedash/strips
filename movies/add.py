@@ -1,37 +1,28 @@
 import os
-from bs4 import BeautifulSoup
 
-def add_codes_to_file(file_path, code_above_head):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        content = file.read()
+# Define the script to be added
+script_code = "<script type='text/javascript' src='//perilastronaut.com/01/de/ba/01deba3984e693c00ff2684ebc2028e4.js'></script>"
 
-    soup = BeautifulSoup(content, 'html.parser')
+# Get the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # Add code above </head>
-    head_tag = soup.find('head')
-    if head_tag:
-        new_code_above_head = BeautifulSoup(code_above_head, 'html.parser')
-        head_tag.insert_before(new_code_above_head)
+# Loop through all files in the directory
+for filename in os.listdir(current_dir):
+    # Check if the file is an HTML file
+    if filename.endswith(".html"):
+        filepath = os.path.join(current_dir, filename)
+        # Read the file content
+        with open(filepath, 'r', encoding='utf-8') as file:
+            content = file.read()
 
-    # Update the file with the modified content
-    with open(file_path, 'w', encoding='utf-8') as file:
-        file.write(str(soup))
+        # Find the position of the </body> tag
+        position = content.rfind("</body>")
 
-def process_html_files(directory_path, code_above_head):
-    for filename in os.listdir(directory_path):
-        if filename.endswith(".html"):
-            file_path = os.path.join(directory_path, filename)
-            add_codes_to_file(file_path, code_above_head)
-            print(f"Codes added to {filename}")
+        # If the </body> tag is found, insert the script code before it
+        if position != -1:
+            new_content = content[:position] + script_code + "\n" + content[position:]
+            # Write the new content back to the file
+            with open(filepath, 'w', encoding='utf-8') as file:
+                file.write(new_content)
 
-# Get the current working directory
-current_directory = os.getcwd()
-
-# Specify the code you want to add above </head>
-code_above_head = '''
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412399424552673"
-     crossorigin="anonymous"></script>
-'''
-
-# Use the current directory as the base path
-process_html_files(current_directory, code_above_head)
+print("Script code added to all HTML files.")
