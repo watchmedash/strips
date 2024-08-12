@@ -29,6 +29,17 @@
 #load-more-btn:hover {
     background-color: #27292a;
 }
+
+#searchResults {
+      display: none;
+      margin-top: 20px;
+    }
+    .movie-link {
+      text-decoration: none;
+      color: #000; /* Set link color */
+      display: block; /* Ensure each link is on its own line */
+      margin: 10px 0;
+    }
 </style>
 
 <script async="" src="https://platform-api.sharethis.com/js/sharethis.js#property=66af2dbd595beb00197dfcab&amp;product=sticky-share-buttons"></script>
@@ -51,7 +62,7 @@
     </header>
 <body oncontextmenu="return false;">
 <div class="image-contained">
-<a href="https://braflix.win"><img src="https://i.postimg.cc/0N8NxSVb/bratflix.gif" alt="ad"></a>
+<a href="https://bralix.win"><img src="https://i.postimg.cc/0N8NxSVb/bratflix.gif" alt="ad"></a>
  </div>
 <div class="search-container">
   <form>
@@ -144,9 +155,8 @@
             const movieFigures = tempElement.querySelectorAll('figure');
             return Array.from(movieFigures).map(figure => {
               const title = figure.querySelector("figcaption")?.textContent.trim() || '';
-              const imageSrc = figure.querySelector("img.defer-image")?.getAttribute("data-src") || '';
-              const tags = Array.from(figure.querySelectorAll('span.tag')).map(tag => tag.textContent.trim()).join(', ');
-              return { title, imageSrc, tags };
+              const link = figure.querySelector("a.movie-link")?.getAttribute("href") || '';
+              return { title, link };
             });
           })
         );
@@ -173,8 +183,7 @@
           searchResults.style.display = "none";
         } else {
           const filteredMovies = movieData.filter(movie =>
-            movie.title.toLowerCase().includes(searchTerm) ||
-            movie.tags.toLowerCase().includes(searchTerm)
+            movie.title.toLowerCase().includes(searchTerm)
           );
           
           console.log("Search Term:", searchTerm);
@@ -189,16 +198,12 @@
         }
       }
 
-      // Function to display filtered movies
+      // Function to display filtered movies (only title and link)
       function displayItemList(movies, container) {
         container.innerHTML = movies.map(movie => `
-          <figure>
-            <a class="movie-link" href="movie-page.html?title=${encodeURIComponent(movie.title)}&src=${encodeURIComponent(movie.imageSrc)}">
-              <img alt="${movie.title}" class="defer-image" data-src="${movie.imageSrc}" height="320" width="240"/>
-              <span class="tag">${movie.tags}</span>
-            </a>
-            <figcaption>${movie.title}</figcaption>
-          </figure>
+          <a class="movie-link" href="${movie.link}">
+            ${movie.title}
+          </a>
         `).join('');
       }
 
@@ -217,7 +222,6 @@
     <div class="arrow-up"></div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <script src="script.js"></script>
 <script src="scripter.js"></script>
 <script type='text/javascript' src='//perilastronaut.com/01/de/ba/01deba3984e693c00ff2684ebc2028e4.js'></script>
