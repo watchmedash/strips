@@ -62,7 +62,7 @@
     </header>
 <body oncontextmenu="return false;">
 <div class="image-contained">
-<a href="https://bralix.win"><img src="https://i.postimg.cc/0N8NxSVb/bratflix.gif" alt="ad"></a>
+<a href="https://braflix.win"><img src="https://i.postimg.cc/0N8NxSVb/bratflix.gif" alt="ad"></a>
  </div>
 <div class="search-container">
   <form>
@@ -79,7 +79,7 @@
 <div class="search-container"><button id="load-more-btn">Load More</button></div>
 <script>
     let currentPart = 1;
-    const totalParts = 10; // Adjust based on the number of parts you have
+    const totalParts = 68; // Adjust based on the number of parts you have
 
     function loadNextGalleryPart() {
         if (currentPart > totalParts) return;
@@ -218,9 +218,26 @@
       searchResults.style.display = "none";
     });
   </script>
-<div id="go-to-top-button" class="floating-button">
-    <div class="arrow-up"></div>
-</div>
+<div id="go-to-top-button" class="floating-button"><div class="arrow-up"></div></div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Get the current URL
+    const url = new URL(window.location.href);
+
+    // Extract query parameters
+    const title = url.searchParams.get('title');
+
+    // Construct new URL
+    let newUrl = window.location.pathname;
+    if (title) {
+        newUrl += `?title=${encodeURIComponent(title)}`;
+    }
+
+    // Update the URL
+    window.history.replaceState({}, '', newUrl);
+});
+
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="script.js"></script>
 <script src="scripter.js"></script>
