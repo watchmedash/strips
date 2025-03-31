@@ -15,6 +15,7 @@
     <div class="bet-container">
       <label for="bet">Bet Amount:</label>
       <input type="number" id="bet" value="10" min="1">
+      <div class="message" id="message" role="alert" aria-live="assertive"></div>
     </div>
     <div class="slot-machine">
       <div class="reels-container">
@@ -44,7 +45,7 @@
         <svg id="winning-lines" aria-hidden="true"></svg>
       </div>
       <button id="spin">Spin!</button>
-      <div class="message" id="message" role="alert" aria-live="assertive"></div>
+
     </div>
     <button id="withdraw">Withdraw</button>
     <button id="resetButton" style="display: none;">Reset</button>
