@@ -103,30 +103,30 @@ function initGame() {
   const evaluateGrid = (grid, bet) => {
     let totalReward = 0;
     const winningLinePositions = [];
+
     winningLines.forEach(line => {
-      const lineSymbols = line.map(([r, c]) => grid[r][c]);
-      const counts = {};
-      lineSymbols.forEach(symObj => {
-        counts[symObj.symbol] = (counts[symObj.symbol] || 0) + 1;
-      });
-      for (const sym in counts) {
-        if (counts[sym] === 3) {
-          const symbolObj = config.symbols.find(s => s.symbol === sym);
-          const reward = bet * symbolObj.multiplier * 3;
-          totalReward += reward;
-          winningLinePositions.push(line);
-          break;
-        } else if (counts[sym] === 2) {
-          const symbolObj = config.symbols.find(s => s.symbol === sym);
-          const reward = bet * symbolObj.multiplier * 2;
-          totalReward += reward;
-          winningLinePositions.push(line);
-          break;
+        const lineSymbols = line.map(([r, c]) => grid[r][c]);
+        const counts = {};
+
+        // Count occurrences of each symbol in the line
+        lineSymbols.forEach(symObj => {
+            counts[symObj.symbol] = (counts[symObj.symbol] || 0) + 1;
+        });
+
+        for (const sym in counts) {
+            if (counts[sym] === 3) {  // Only reward for 3 of a kind
+                const symbolObj = config.symbols.find(s => s.symbol === sym);
+                const reward = bet * symbolObj.multiplier * 3;
+                totalReward += reward;
+                winningLinePositions.push(line);
+                break; // Stop checking this line after a 3-match win
+            }
         }
-      }
     });
+
     return { totalReward, winningLinePositions };
-  };
+};
+
 
   const drawWinningLines = (lines) => {
     svgOverlay.innerHTML = "";
