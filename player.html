@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Watch full movies online for free on Nextflix. Stream high-quality movies across all genres including action, drama, comedy, horror, and anime. No signup required.">
+  <meta name="keywords" content="Watch Free Movies, Stream Movies Online, Full Movies Free, Nextflix, Action Movies, Comedy, Horror, Drama, Anime, Online Movie Player, Free Streaming, Watch Without Sign Up, Movie Watch Online, HD Movies, Free Movie Site">
+  <meta name="robots" content="index, follow">
+  <meta property="og:description" content="Stream your favorite full-length movies online for free. No subscription needed. Enjoy HD quality movies anytime on Nextflix." />
+  <meta property="og:url" content="https://nextflix.top/player.html" />
+  <meta property="og:image" content="https://i.postimg.cc/d0rWyzH2/tj.webp" />
+  <meta property="og:image:alt" content="Nextflix - Stream Full Movies Free" />
+  <meta property="og:type" content="video.movie" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:description" content="Enjoy streaming free full-length movies in high quality. Watch now without registration on Nextflix." />
+  <meta name="twitter:image" content="https://i.postimg.cc/d0rWyzH2/tj.webp" />
+  <meta name="twitter:image:alt" content="Nextflix - Stream Full Movies Free" />
+  <link rel="canonical" href="https://nextflix.top/player.html" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="player.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=64b0f5079f35fb00121494d9&product=sticky-share-buttons" async></script>
+  <title>Nextflix - Watch Free Full Movies Online</title>
+</head>
+<body>
+<div class="movie-container">
+  <div class="theme-toggle">
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch" class="switch">
+      <span class="slider">
+        <i class="fa-solid fa-sun icon"></i>
+      </span>
+    </label>
+  </div>
+  <div class="info-banner">
+    <i class="fas fa-info-circle"></i> Having trouble? Try switching to a different server.
+</div>
+<select id="video-source" onchange="changeSource()">
+<option value="">Select Server</option>
+</select>
+<div class="video-container"><iframe id="video-player" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+<div class="sharethis-inline-share-buttons"></div>
+<div class="sharethis-inline-reaction-buttons"></div>
+<div class="movie-details">
+<img id="movie-poster" src="" alt="Movie Poster">
+<div class="movie-info">
+<h2 id="movie-title-info">Loading...</h2>
+<button id="watchlist-btn" class="watchlist-btn"><i class="fas fa-plus"></i></button>
+<a href="watchlist.html" id="watchlist-icon-btn" class="watchlist-icon-btn"><i class="fas fa-bookmark"></i></a>
+<p><strong>Release Year:</strong> <span id="release-year">Loading...</span></p>
+<p><strong>Genres:</strong> <span id="genres">Loading...</span></p>
+<p><strong>Rating:</strong> <span id="rating" class="rating">Loading...</span></p>
+<p><strong>Overview:</strong></p>
+<p id="movie-overview">Loading...</p>
+<p><strong>Director:</strong> <span id="director">Loading...</span></p>
+</div>
+</div>
+<div class="related-movies">
+  <h2>Related Movies</h2>
+    <div id="related-movies-list" class="movies-list">
+    </div>
+</div>
+<div id="comments-wrapper">
+    <div id="disqus_thread"></div>
+</div>
+
+<script>
+    var disqus_config = function () {
+        const params = new URLSearchParams(window.location.search);
+        const movieId = params.get("id");
+
+        this.page.url = window.location.href; // Use the full URL as the unique page URL
+        this.page.identifier = movieId;       // Unique TMDB ID as the identifier
+    };
+
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://watchmenow.disqus.com/embed.js'; // Replace with your Disqus shortname if different
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+<button class="close-btn" onclick="goBack()">Go Back</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const switchInput = document.getElementById("theme-switch");
+    const icon = document.querySelector(".theme-toggle .icon");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+        body.classList.add("light-theme");
+        switchInput.checked = true;
+        icon.classList.replace("fa-sun", "fa-moon");
+    }
+
+    switchInput.addEventListener("change", () => {
+        const isLight = switchInput.checked;
+        body.classList.toggle("light-theme", isLight);
+        icon.classList.replace(isLight ? "fa-sun" : "fa-moon", isLight ? "fa-moon" : "fa-sun");
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+});
+</script>
+<script src="player.js"></script>
+<script src="p.js"></script>
+<script src="related.js"></script>
+</body>
+</html>

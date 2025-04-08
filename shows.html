@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Watch free TV series online at Nextflix. Discover a diverse library of genres including classic shows, the latest releases, anime, drama, and more—all available for seamless streaming."/>
+  <meta name="keywords" content="Free TV series, Watch free TV shows, Online streaming, TV show genres, Latest TV releases, Classic series, Watch Anime Online, Free Drama Series, Popular TV shows, Family-Friendly TV, Comedy Series, Action TV Shows,
+    Thriller Series, Reality TV, Free Streaming, Watch TV Anytime,
+    Free Streaming Platform, Top Rated TV Shows, Binge-Watch TV,
+    Streaming Live Sports, Watch TV Shows Without Registration,
+    On-Demand TV Series, Watch TV Shows Online, Latest Anime Episodes,
+    Discover Classic TV Shows, Trending TV Series,
+    Free Entertainment, TV Shows for Free, Stream TV Shows Online"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Nextflix - Watch Free TV Series Online"/>
+  <meta property="og:description" content="Explore a vast selection of free TV series at Nextflix. Enjoy genres ranging from classic favorites to the latest releases, all available for streaming anytime, anywhere."/>
+  <meta property="og:url" content="https://nextflix.top/shows"/>
+  <meta property="og:image" content="https://i.postimg.cc/d0rWyzH2/tj.webp"/>
+  <meta property="og:image:alt" content="Nextflix - Watch Free TV Series Online"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Nextflix - Watch Free TV Series Online"/>
+  <meta name="twitter:description" content="Enjoy an extensive library of free TV series online at Nextflix. From classic hits to the latest shows, stream a variety of genres easily and for free."/>
+  <meta name="twitter:image" content="https://i.postimg.cc/d0rWyzH2/tj.webp"/>
+  <meta name="twitter:image:alt" content="Nextflix - Watch Free TV Series Online"/>
+  <link rel="canonical" href="https://nextflix.top/shows"/>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>TV Shows - Watch Free TV Series Online</title>
+  <link rel="stylesheet" href="shows.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=64b0f5079f35fb00121494d9&product=sticky-share-buttons"></script>
+  </head>
+<body oncontextmenu="return false;">
+<div class="sharethis-inline-share-buttons"></div>
+<div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search for TV shows..." oninput="handleSearch()">
+</div>
+<div class="row" id="gallery"></div>
+
+<div id="loading-spinner" style="text-align:center; display: none;">
+    <div class="spinner"></div>
+    <p>Loading more TV shows...</p>
+</div>
+<button id="goToTop" onclick="scrollToTop()" style="display: none; position: fixed; bottom: 60px; right: 20px; background-color: #fff; color: #333; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 18px; z-index: 99999;">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="15" style="color: #333;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 15l-7-7-7 7"></path></svg>
+</button>
+
+<script>
+    window.onscroll = function() {
+        const button = document.getElementById('goToTop');
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+  <script>function isInViewport(e){const t=e.getBoundingClientRect();return t.top>=0&&t.left>=0&&t.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&t.right<=(window.innerWidth||document.documentElement.clientWidth)}function loadImages(){document.querySelectorAll(".defer-image").forEach(e=>{if(isInViewport(e)){const t=e.getAttribute("data-src");if(t){const n=new Image;n.src=t,n.onload=()=>{e.setAttribute("src",t),e.classList.remove("defer-image")}}}})}window.addEventListener("scroll",loadImages),window.addEventListener("resize",loadImages),loadImages();</script>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="tvplus.html" class="nav-item">
+      <i class="fas fa-broadcast-tower"></i> Live TV
+    </a>
+    <a href="movies.html" class="nav-item">
+      <i class="fas fa-film"></i> Movies
+    </a>
+    <a href="trailer.html" class="nav-item">
+      <i class="fas fa-video"></i> Trailers
+    </a>
+    <a href="requested.html" class="nav-item">
+      <i class="fas fa-list"></i> Requested
+    </a>
+  </nav>
+<script src="mains.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
